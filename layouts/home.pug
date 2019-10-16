@@ -1,0 +1,16 @@
+extends base
+
+block title
+  title #{sitename} by #{author}
+
+block content
+  each post in pagination.files
+    article
+      h2
+        a(href=`/${post.path}/`)= post.title
+      section
+        != post.contents
+
+  nav
+    each page in pagination.pages
+      a(href=`/page/${page.pagination.num}/`)= page.pagination.num

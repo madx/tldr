@@ -1,0 +1,44 @@
+{
+  "name": "tldr",
+  "version": "1.0.0",
+  "description": "my development blog",
+  "main": "index.js",
+  "author": "madx",
+  "license": "MIT",
+  "scripts": {
+    "build": "node index.js",
+    "start": "NODE_ENV=development node index.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.8.16",
+    "husky": "^3.0.9",
+    "jstransformer-pug": "^0.3.0",
+    "lint-staged": "^9.4.2",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-debug": "^1.2.0",
+    "metalsmith-layouts": "^2.3.1",
+    "metalsmith-markdown": "^1.2.0",
+    "metalsmith-pagination": "^1.4.1",
+    "metalsmith-permalinks": "^2.2.0",
+    "metalsmith-serve": "^0.0.7",
+    "metalsmith-watch": "^1.0.3",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "trailingComma": "all",
+    "bracketSpacing": true
+  }
+}
