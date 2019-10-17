@@ -4,13 +4,9 @@ block title
   title #{sitename} by #{author}
 
 block content
-  each post in pagination.files
-    article
-      h2
-        a(href=`/${post.path}/`)= post.title
-      section
-        != post.contents
+  each p in pagination.files
+    +post(p)
 
   nav
     each page in pagination.pages
-      a(href=`/page/${page.pagination.num}/`)= page.pagination.num
+      a(href=`/page/${page.pagination.num}/` class=pagination.num === page.pagination.num ? "current" : null)= page.pagination.num

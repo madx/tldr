@@ -1,3 +1,5 @@
+include mixins
+
 html
   head
     block title
@@ -7,10 +9,12 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="author" content=author)
     meta(name="description" content=description)
+    link(rel="stylesheet" href="/css/stylesheet.css")
   body
     header
       h1
-        a(href="/") tl;dr
+        a(href="/") TL;DR
+
     main
       block content
 

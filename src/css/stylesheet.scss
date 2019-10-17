@@ -1,0 +1,156 @@
+@import "./sanitize.css";
+@import "./typography.css";
+
+:root {
+  --base: #07c;
+  --black: #374047;
+  --gray0: #f8f9f9;
+  --gray1: #ebedee;
+  --gray2: #dee1e3;
+  --gray3: #cfd3d6;
+  --gray4: #bec4c8;
+  --gray5: #acb4b9;
+  --gray6: #97a1a7;
+  --gray7: #7f8a93;
+  --gray8: #5f6e78;
+  --gray9: #374047;
+  --blue0: #e4f0f9;
+  --blue1: #c6e1f3;
+  --blue2: #a5cfed;
+  --blue3: #7db9e5;
+  --blue4: #4a9eda;
+  --blue5: #0077cc;
+  --blue6: #006bb7;
+  --blue7: #005da0;
+  --blue8: #004d84;
+  --blue9: #00365d;
+}
+
+@mixin black-links {
+  a[href] {
+    color: var(--black);
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: var(--blue5);
+    }
+  }
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1;
+  background-color: var(--gray1);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin: 0 auto;
+  max-width: 120rem;
+
+  a[href] {
+    color: var(--blue5);
+    &:hover,
+    &:active {
+      color: var(--blue4);
+    }
+  } // a[href]
+
+  header {
+    margin: 4.8rem 0 6.4rem;
+    h1 {
+      font-size: 12.8rem;
+      margin: 0;
+      text-align: center;
+      a {
+        text-decoration: none;
+      } // a
+    } // h1
+  } // header
+
+  main {
+    article {
+      background-color: var(--gray0);
+      padding: 3.2rem;
+      margin: 0 0 4.8rem;
+
+      h2 {
+        margin: 0 0 3.2rem;
+        font-size: 3.2rem;
+        @include black-links;
+      } // h2
+
+      section {
+        font-size: 2rem;
+      } // section
+
+      footer {
+        margin: 0 -3.2rem -3.2rem;
+
+        ul {
+          margin: 3.2rem 0 0;
+          padding: 0;
+          display: flex;
+          list-style-type: none;
+          border-top: 1px solid var(--gray2);
+
+          li {
+            flex: 1;
+            padding: 1.6rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            border-right: 1px solid var(--gray2);
+
+            &:last-child {
+              border-right: none;
+            }
+
+            .icon {
+              margin-right: 0.8rem;
+            }
+
+            @include black-links;
+          } // li
+        } // ul
+      } // footer
+    } // article
+
+    nav {
+      text-align: center;
+      margin-top: 4.8rem;
+
+      a {
+        display: inline-block;
+        font-size: 2.4rem;
+        padding: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 1.6rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+        &.current,
+        &:hover,
+        &:active {
+          background-color: var(--gray0);
+        }
+      } // a
+    } // nav
+  } // main
+} // body
+
+.icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  color: var(--black);
+}

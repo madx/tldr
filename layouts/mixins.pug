@@ -1,0 +1,18 @@
+mixin post(p)
+  article
+    h2
+      a(href=`/${p.path}/`)= p.title
+    section
+      != p.contents
+    footer
+      ul
+        li
+          a()
+            svg.icon
+              use(xlink:href="/images/entypo.svg#entypo-bookmark")
+            = p.category
+        li
+          a(href=`/${p.path}/`)
+            svg.icon
+              use(xlink:href="/images/entypo.svg#entypo-link")
+            | permalink
