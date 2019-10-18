@@ -23,6 +23,7 @@
     "metalsmith-pagination": "^1.4.1",
     "metalsmith-permalinks": "^2.2.0",
     "metalsmith-sass": "^1.6.0",
+    "metalsmith-tags": "^2.0.0",
     "prettier": "^1.18.2",
     "sane": "^4.1.0",
     "serve-handler": "^6.1.2",
@@ -34,7 +35,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css,scss,md}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prettier": {
     "semi": false,

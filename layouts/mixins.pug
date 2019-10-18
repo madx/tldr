@@ -1,12 +1,18 @@
 mixin post(p)
   article
+    if p.link
+      h3= p.link.split("/", 3).pop()
+
     h2
-      a(href=`/${p.path}/`)= p.title
+      a(href=p.link || `/${p.path}/`)= p.title
     section
       != p.contents
     footer
       ul
         li
-          a(href=`/tag/${p.category}/`) ##{p.category}
+          a(href=`/topic/${p.topic}/` title=`View posts about ${p.topic}`) ##{p.topic}
         li
-          a(href=`/${p.path}/`) permalink
+          if p.link
+            a(href=p.link title="External link") external
+          else
+            a(href=`/${p.path}/` title="Link this post") permalink

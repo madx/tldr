@@ -1,7 +1,7 @@
 ---
 title: About this blog
 date: 2019-10-16
-category: meta
+topic: meta
 ---
 
 This blog is my personal development blog/journal/notebook hybrid.

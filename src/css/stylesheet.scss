@@ -128,6 +128,15 @@ body {
         @include links-color($black, $blue5);
       } // h2
 
+      h3 {
+        margin: -3.2rem -3.2rem 3.2rem;
+        background-color: $cyan0;
+        color: $cyan9;
+        font-weight: normal;
+        padding: 0.8rem;
+        font-size: 1.4rem;
+      }
+
       section {
         font-size: 2rem;
       } // section

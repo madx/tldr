@@ -1,0 +1,10 @@
+extends base
+
+block title
+  title Posts about #{tag} - #{sitename} by #{author}
+
+block content
+  each p in pagination.files
+    +post(p)
+
+
