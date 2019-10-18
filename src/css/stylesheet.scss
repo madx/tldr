@@ -1,39 +1,51 @@
 @import "./sanitize.css";
 @import "./typography.css";
 
-:root {
-  --base: #07c;
-  --black: #374047;
-  --gray0: #f8f9f9;
-  --gray1: #ebedee;
-  --gray2: #dee1e3;
-  --gray3: #cfd3d6;
-  --gray4: #bec4c8;
-  --gray5: #acb4b9;
-  --gray6: #97a1a7;
-  --gray7: #7f8a93;
-  --gray8: #5f6e78;
-  --gray9: #374047;
-  --blue0: #e4f0f9;
-  --blue1: #c6e1f3;
-  --blue2: #a5cfed;
-  --blue3: #7db9e5;
-  --blue4: #4a9eda;
-  --blue5: #0077cc;
-  --blue6: #006bb7;
-  --blue7: #005da0;
-  --blue8: #004d84;
-  --blue9: #00365d;
-}
+$base: #07c;
+$black: #374047;
+$gray0: #f8f9f9;
+$gray1: #ebedee;
+$gray2: #dee1e3;
+$gray3: #cfd3d6;
+$gray4: #bec4c8;
+$gray5: #acb4b9;
+$gray6: #97a1a7;
+$gray7: #7f8a93;
+$gray8: #5f6e78;
+$gray9: #374047;
+$blue0: #e4f0f9;
+$blue1: #c6e1f3;
+$blue2: #a5cfed;
+$blue3: #7db9e5;
+$blue4: #4a9eda;
+$blue5: #0077cc;
+$blue6: #006bb7;
+$blue7: #005da0;
+$blue8: #004d84;
+$blue9: #00365d;
+$cyan0: #e3f9f7;
+$cyan1: #c4f3ef;
+$cyan2: #a0ece5;
+$cyan3: #77e3da;
+$cyan4: #44d9cd;
+$cyan5: #00ccbb;
+$cyan6: #00b8a9;
+$cyan7: #00a294;
+$cyan8: #00867b;
+$cyan9: #006159;
 
-@mixin black-links {
+$mobile: "only screen and (max-width: 544px)";
+$tablet: "only screen and (max-width: 768px)";
+$desktop: "only screen and (min-width: 1000px)";
+
+@mixin links-color($color: $blue5, $hover: $blue4) {
   a[href] {
-    color: var(--black);
+    color: $color;
     text-decoration: none;
 
     &:hover,
     &:active {
-      color: var(--blue5);
+      color: $hover;
     }
   }
 }
@@ -41,7 +53,7 @@
 html {
   font-size: 62.5%;
   line-height: 1;
-  background-color: var(--gray1);
+  background-color: $gray1;
 }
 
 html,
@@ -51,24 +63,46 @@ body {
 
 body {
   font-size: 1.6rem;
-  color: var(--black);
-  margin: 0 auto;
-  max-width: 120rem;
+  color: $black;
+  margin: 0 3.2rem;
+  max-width: calc(100rem - 2 * 3.2rem);
+
+  @media #{$desktop} {
+    margin: 0 auto;
+    max-width: calc(100rem - 2 * 3.2rem);
+  }
+
+  @media #{$mobile} {
+    margin: 0 auto;
+    max-width: 100%;
+  }
 
   a[href] {
-    color: var(--blue5);
+    color: $blue5;
     &:hover,
     &:active {
-      color: var(--blue4);
+      color: $blue4;
     }
   } // a[href]
 
   header {
     margin: 4.8rem 0 6.4rem;
+
+    @media #{$mobile} {
+      margin: 2.4rem 0 3.2rem;
+    }
+
     h1 {
-      font-size: 12.8rem;
       margin: 0;
+      font-family: "Secular One", sans-serif;
+      font-weight: normal;
+      font-size: 12.8rem;
       text-align: center;
+
+      @media #{$mobile} {
+        font-size: 6.4rem;
+      }
+
       a {
         text-decoration: none;
       } // a
@@ -77,14 +111,21 @@ body {
 
   main {
     article {
-      background-color: var(--gray0);
+      background-color: $gray0;
       padding: 3.2rem;
       margin: 0 0 4.8rem;
+      box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.05);
+
+      @media #{$mobile} {
+        margin-bottom: 2.4rem;
+      }
 
       h2 {
         margin: 0 0 3.2rem;
+        font-family: "Secular One", sans-serif;
+        font-weight: normal;
         font-size: 3.2rem;
-        @include black-links;
+        @include links-color($black, $blue5);
       } // h2
 
       section {
@@ -99,15 +140,14 @@ body {
           padding: 0;
           display: flex;
           list-style-type: none;
-          border-top: 1px solid var(--gray2);
+          border-top: 1px solid $gray2;
 
           li {
             flex: 1;
-            padding: 1.6rem;
             text-align: center;
             text-transform: uppercase;
             font-size: 1.4rem;
-            border-right: 1px solid var(--gray2);
+            border-right: 1px solid $gray2;
 
             &:last-child {
               border-right: none;
@@ -117,7 +157,13 @@ body {
               margin-right: 0.8rem;
             }
 
-            @include black-links;
+            a {
+              padding: 1.6rem;
+              display: inline-block;
+              width: 100%;
+            }
+
+            @include links-color($cyan7, $cyan5);
           } // li
         } // ul
       } // footer
@@ -126,6 +172,8 @@ body {
     nav {
       text-align: center;
       margin-top: 4.8rem;
+
+      @include links-color($cyan7, $cyan5);
 
       a {
         display: inline-block;
@@ -141,16 +189,23 @@ body {
         &.current,
         &:hover,
         &:active {
-          background-color: var(--gray0);
+          background-color: $gray0;
         }
       } // a
     } // nav
   } // main
+
+  footer {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 3.2rem;
+    color: $gray6;
+  } // footer
 } // body
 
 .icon {
   display: inline-block;
   width: 2rem;
   height: 2rem;
-  color: var(--black);
+  color: $black;
 }
