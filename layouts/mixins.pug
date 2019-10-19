@@ -1,12 +1,14 @@
 mixin post(p)
   article
     if p.link
-      h3= p.link.split("/", 3).pop()
+      aside= p.link.split("/", 3).pop()
 
     h2
       a(href=p.link || `/${p.path}/`)= p.title
+
     section
       != p.contents
+
     footer
       ul
         li

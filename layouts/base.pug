@@ -3,24 +3,27 @@ include mixins
 html
   head
     block title
-      title #{title} - #{sitename} by #{author}
+      title #{title} - #{site.title} by #{site.author}
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(name="author" content=author)
-    meta(name="description" content=description)
+    meta(name="author" content=site.author)
+    meta(name="description" content=site.description)
     link(rel="stylesheet" href="/css/stylesheet.css")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Secular+One")
+    link(rel="alternate feed" href="/feed.xml" type="application/rss+xml" title=`${site.title} by ${site.author}`)
   body
     header
       h1
         a(href="/" title="Back to post list") TL;DR
+      h2 by #{site.author}
 
     main
       block content
 
     footer
-      | © #{author} #{year}
+      | © #{site.author} #{year} -#{" "}
+      a(href="/feed.xml") RSS
 
     if process.env.NODE_ENV == "development"
       script(src="http://localhost:35729/livereload.js")

@@ -1,7 +1,7 @@
 extends base
 
 block title
-  title Posts about #{tag} - #{sitename} by #{author}
+  title Posts about #{tag} - #{site.title} by #{site.author}
 
 block content
   each p in pagination.files

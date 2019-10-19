@@ -62,13 +62,15 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-size: 1.6rem;
   color: $black;
   margin: 0 3.2rem;
   max-width: calc(100rem - 2 * 3.2rem);
 
   @media #{$desktop} {
-    margin: 0 auto;
+    margin: 0 auto -1rem;
     max-width: calc(100rem - 2 * 3.2rem);
   }
 
@@ -85,14 +87,16 @@ body {
     }
   } // a[href]
 
-  header {
-    margin: 4.8rem 0 6.4rem;
+  & > header {
+    padding-top: 4.8rem;
+    margin: 0 0 6.4rem;
 
     @media #{$mobile} {
-      margin: 2.4rem 0 3.2rem;
+      padding-top: 2.4rem;
+      margin: 0 0 3.2rem;
     }
 
-    h1 {
+    & > h1 {
       margin: 0;
       font-family: "Secular One", sans-serif;
       font-weight: normal;
@@ -107,10 +111,27 @@ body {
         text-decoration: none;
       } // a
     } // h1
+
+    & > h2 {
+      margin: 0;
+      text-transform: uppercase;
+      color: $gray6;
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 0.42rem;
+      text-align: center;
+
+      @media #{$mobile} {
+        font-size: 1.5rem;
+        letter-spacing: 0.22rem;
+      }
+    } // h2
   } // header
 
-  main {
-    article {
+  & > main {
+    flex: 1;
+
+    & > article {
       background-color: $gray0;
       padding: 3.2rem;
       margin: 0 0 4.8rem;
@@ -120,7 +141,7 @@ body {
         margin-bottom: 2.4rem;
       }
 
-      h2 {
+      & > h2 {
         margin: 0 0 2.4rem;
         font-family: "Secular One", sans-serif;
         font-weight: normal;
@@ -128,7 +149,7 @@ body {
         @include links-color($black, $blue5);
       } // h2
 
-      h3 {
+      & > aside {
         margin: -3.2rem -3.2rem 3.2rem;
         background-color: $cyan0;
         color: $cyan9;
@@ -137,21 +158,21 @@ body {
         font-size: 1.4rem;
       }
 
-      section {
+      & > section {
         font-size: 1.6rem;
       } // section
 
-      footer {
+      & > footer {
         margin: 0 -3.2rem -3.2rem;
 
-        ul {
+        & > ul {
           margin: 3.2rem 0 0;
           padding: 0;
           display: flex;
           list-style-type: none;
           border-top: 1px solid $gray2;
 
-          li {
+          & > li {
             flex: 1;
             text-align: center;
             text-transform: uppercase;
@@ -178,7 +199,7 @@ body {
       } // footer
     } // article
 
-    nav {
+    & > nav {
       text-align: center;
       margin-top: 4.8rem;
 
@@ -204,11 +225,14 @@ body {
     } // nav
   } // main
 
-  footer {
+  & > footer {
     text-align: center;
-    font-size: 1.4rem;
     margin-top: 3.2rem;
-    color: $gray6;
+    border-top: 1px solid $gray4;
+    color: $gray7;
+    padding: 2.4rem;
+
+    @include links-color($cyan7, $cyan5);
   } // footer
 } // body
 
