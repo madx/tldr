@@ -11,8 +11,8 @@ mixin post(p)
       ul
         li
           a(href=`/topic/${p.topic}/` title=`View posts about ${p.topic}`) ##{p.topic}
+        if p.link
+          li
+            a(href=p.link title="Link to the original page") source
         li
-          if p.link
-            a(href=p.link title="External link") external
-          else
-            a(href=`/${p.path}/` title="Link this post") permalink
+          a(href=`/${p.path}/` title="Link this post") permalink
