@@ -1,5 +1,6 @@
 @import "./sanitize.css";
 @import "./typography.css";
+@import "./hybrid.css";
 
 $base: #07c;
 $black: #374047;
@@ -66,16 +67,10 @@ body {
   flex-direction: column;
   font-size: 1.6rem;
   color: $black;
-  margin: 0 3.2rem;
-  max-width: calc(100rem - 2 * 3.2rem);
-
-  @media #{$desktop} {
-    margin: 0 auto -1rem;
-    max-width: calc(100rem - 2 * 3.2rem);
-  }
+  margin: 0 auto;
+  max-width: 80rem;
 
   @media #{$mobile} {
-    margin: 0 auto;
     max-width: 100%;
   }
 
@@ -160,6 +155,11 @@ body {
 
       & > section {
         font-size: 1.6rem;
+        line-height: 2.4rem;
+
+        .twitter-tweet {
+          margin: 3.2rem auto !important;
+        }
       } // section
 
       & > footer {
