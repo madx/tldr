@@ -23,14 +23,13 @@ component and pass the state management functions through the context:
 const AppContext = React.createContext()
 
 class App extends React.Component {
-  dispatch = async (fn, ...args) => {
-    return new Promise(resolve => {
+  dispatch = (fn, ...args) =>
+    new Promise(resolve => {
       this.setState(
         prevState => ({ appState: fn(prevState.appState, ...args) }),
         () => resolve(this.state.appState),
       )
     })
-  }
 
   state = {
     appState: {},
