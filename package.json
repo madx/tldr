@@ -13,7 +13,6 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "dayjs": "^1.8.16",
-    "highlight.js": "^9.16.2",
     "husky": "^3.0.9",
     "jstransformer-pug": "^0.3.0",
     "lint-staged": "^9.4.2",
@@ -28,6 +27,7 @@
     "metalsmith-sass": "^1.6.0",
     "metalsmith-tags": "^2.0.0",
     "prettier": "^1.18.2",
+    "prismjs": "^1.17.1",
     "prompts": "^2.2.1",
     "sane": "^4.1.0",
     "serve-handler": "^6.1.2",
@@ -49,5 +49,8 @@
     "semi": false,
     "trailingComma": "all",
     "bracketSpacing": true
+  },
+  "devDependencies": {
+    "remark": "^11.0.1"
   }
 }
