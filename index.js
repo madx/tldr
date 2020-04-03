@@ -1,5 +1,5 @@
 const createBuilder = require("./lib/builder")
 
-createBuilder().build(function(err) {
+createBuilder().build(function (err) {
   if (err) throw err
 })
