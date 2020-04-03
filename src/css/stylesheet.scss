@@ -157,6 +157,12 @@ body {
         font-size: 1.6rem;
         line-height: 2.4rem;
 
+        .update {
+          background-color: $blue0;
+          padding: 1.6rem;
+          margin: 1.6rem;
+        }
+
         .twitter-tweet {
           margin: 3.2rem auto !important;
         }

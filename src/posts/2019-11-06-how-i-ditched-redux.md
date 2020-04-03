@@ -4,6 +4,10 @@ date: 2019-11-06
 topic: javascript
 ---
 
+<blockquote class="update">
+<strong>Update March 2020:</strong> Use <a href="https://reactjs.org/docs/hooks-reference.html#usereducer">useReducer</a>!
+</blockquote>
+
 [Redux][redux] is probably the most used state management library for
 [React][react]. However, even its own creator has trouble using it, probably
 because it is one massive piece of bloat and boilerplate.
