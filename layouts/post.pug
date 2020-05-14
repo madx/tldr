@@ -1,7 +1,7 @@
 extends base
 
 block title
-  title #{title} - #{site.name} by #{site.author}
+  title #{title} - #{site.title} by #{site.author}
 
 block content
   +post({title, contents, link, topic, path})
