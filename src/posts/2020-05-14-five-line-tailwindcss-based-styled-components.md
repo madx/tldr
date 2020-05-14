@@ -40,3 +40,43 @@ const Warning = styled("div", [
 
 Bonus points for the regular syntax instead of the funky (read: ugly) mix of
 template strings and CSS that you're used to with `styled-components`.
+
+**EDIT a few hours later**: I realized I was missing the ability to derive styles from `props`, so I added it!
+
+```js
+import React from "react"
+import clsx from "clsx"
+
+function isFunction(object) {
+  return Boolean(object && object.constructor && object.call && object.apply)
+}
+
+export default (Component, ...tailwindStyles) => ({ className, ...props }) => {
+  const resolvedStyles = tailwindStyles.map((style) =>
+    isFunction(style) ? style(props) : style,
+  )
+  return <Component className={clsx(...resolvedStyles, className)} {...props} />
+}
+
+// Example usage:
+export default styled(
+  "button",
+  (props) => [
+    "rounded",
+    "py-3",
+    "px-4",
+    "font-bold",
+    "shadow-md",
+    "leading-none",
+    "focus:outline-none",
+    "focus:shadow-outline",
+    props.disabled ? "bg-green-200" : "bg-green-400",
+    props.disabled ? "text-green-500" : "text-blue-900",
+  ],
+  (props) => ({
+    "hover:bg-green-300": !props.disabled,
+    "hover:text-green-800": !props.disabled,
+    "cursor-not-allowed": props.disabled,
+  }),
+)
+```
