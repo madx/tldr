@@ -15,8 +15,8 @@ I came up with a five-line React component that let's you write
 import React from "react"
 import clsx from "clsx"
 
-export default (Component, tailwindStyles) => ({ className, ...props }) => (
-  <Component className={clsx(tailwindStyles, className)} {...props} />
+export default (Component, ...tailwindStyles) => ({ className, ...props }) => (
+  <Component className={clsx(...tailwindStyles, className)} {...props} />
 )
 ```
 
