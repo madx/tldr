@@ -27,7 +27,7 @@
     "metalsmith-sass": "^1.7.0",
     "metalsmith-tags": "^2.0.0",
     "prettier": "^2.0.5",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.23.0",
     "prompts": "^2.3.2",
     "sane": "^4.1.0",
     "serve-handler": "^6.1.2",
